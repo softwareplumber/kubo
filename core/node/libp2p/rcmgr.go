@@ -245,25 +245,25 @@ func LimitConfigsToInfo(limits, stats rcmgr.LimitConfig) ResourceInfos {
 }
 
 const (
-	LimitNameStreams         = "Streams"
-	LimitNameStreamsInbound  = "StreamsInbound"
-	LimitNameStreamsOutbound = "StreamsOutbound"
-	LimitNameConns           = "Conns"
-	LimitNameConnsInbound    = "ConnsInbound"
-	LimitNameConnsOutbound   = "ConnsOutbound"
-	LimitNameFD              = "FD"
-	LimitNameMemory          = "Memory"
+	limitNameStreams         = "Streams"
+	limitNameStreamsInbound  = "StreamsInbound"
+	limitNameStreamsOutbound = "StreamsOutbound"
+	limitNameConns           = "Conns"
+	limitNameConnsInbound    = "ConnsInbound"
+	limitNameConnsOutbound   = "ConnsOutbound"
+	limitNameFD              = "FD"
+	limitNameMemory          = "Memory"
 )
 
 var limits = []string{
-	LimitNameStreams,
-	LimitNameStreamsInbound,
-	LimitNameStreamsOutbound,
-	LimitNameConns,
-	LimitNameConnsInbound,
-	LimitNameConnsOutbound,
-	LimitNameFD,
-	LimitNameMemory,
+	limitNameStreams,
+	limitNameStreamsInbound,
+	limitNameStreamsOutbound,
+	limitNameConns,
+	limitNameConnsInbound,
+	limitNameConnsOutbound,
+	limitNameFD,
+	limitNameMemory,
 }
 
 func baseLimitToResourceInfo(scopeName string, limit, stat rcmgr.BaseLimit) ResourceInfos {
@@ -273,36 +273,36 @@ func baseLimitToResourceInfo(scopeName string, limit, stat rcmgr.BaseLimit) Reso
 			ScopeName: scopeName,
 		}
 		switch l {
-		case LimitNameStreams:
-			ri.LimitName = LimitNameStreams
+		case limitNameStreams:
+			ri.LimitName = limitNameStreams
 			ri.Limit = int64(limit.Streams)
 			ri.CurrentUsage = int64(stat.Streams)
-		case LimitNameStreamsInbound:
-			ri.LimitName = LimitNameStreamsInbound
+		case limitNameStreamsInbound:
+			ri.LimitName = limitNameStreamsInbound
 			ri.Limit = int64(limit.StreamsInbound)
 			ri.CurrentUsage = int64(stat.StreamsInbound)
-		case LimitNameStreamsOutbound:
-			ri.LimitName = LimitNameStreamsOutbound
+		case limitNameStreamsOutbound:
+			ri.LimitName = limitNameStreamsOutbound
 			ri.Limit = int64(limit.StreamsOutbound)
 			ri.CurrentUsage = int64(stat.StreamsOutbound)
-		case LimitNameConns:
-			ri.LimitName = LimitNameConns
+		case limitNameConns:
+			ri.LimitName = limitNameConns
 			ri.Limit = int64(limit.Conns)
 			ri.CurrentUsage = int64(stat.Conns)
-		case LimitNameConnsInbound:
-			ri.LimitName = LimitNameConnsInbound
+		case limitNameConnsInbound:
+			ri.LimitName = limitNameConnsInbound
 			ri.Limit = int64(limit.ConnsInbound)
 			ri.CurrentUsage = int64(stat.ConnsInbound)
-		case LimitNameConnsOutbound:
-			ri.LimitName = LimitNameConnsOutbound
+		case limitNameConnsOutbound:
+			ri.LimitName = limitNameConnsOutbound
 			ri.Limit = int64(limit.ConnsOutbound)
 			ri.CurrentUsage = int64(stat.ConnsOutbound)
-		case LimitNameFD:
-			ri.LimitName = LimitNameFD
+		case limitNameFD:
+			ri.LimitName = limitNameFD
 			ri.Limit = int64(limit.FD)
 			ri.CurrentUsage = int64(stat.FD)
-		case LimitNameMemory:
-			ri.LimitName = LimitNameMemory
+		case limitNameMemory:
+			ri.LimitName = limitNameMemory
 			ri.Limit = limit.Memory
 			ri.CurrentUsage = stat.Memory
 		}
